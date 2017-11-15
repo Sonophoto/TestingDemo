@@ -1,1 +1,1 @@
-cherrypy==
+cherrypy==11.1.0
