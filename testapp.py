@@ -14,6 +14,13 @@ class MVC_Cherry(object):
     """ Main Application Class for Fibonacci and GCD testing system
     """
 
+    @cherrypy.expose
+    def index(self):
+        html_page = "<h1>Choose a Function API</h1>"
+        html_page = html_page + '<p><a href="FibonacciAPI">Fibonacci API</a></p>'
+        html_page = html_page + '<p><a href="gcdAPI">Greatest Common Divisor API</a></p>'
+        return html_page
+
     # Path is http://[ADDRESS]:[PORT]/FibonacciAPI?fidx=[INTEGER]
     @cherrypy.expose
     def FibonacciAPI(self, fibx=0):
@@ -42,7 +49,7 @@ class MVC_Cherry(object):
 
 
 if __name__ == "__main__":
-    cherrypy.quickstart(MVC_Cherry(), '/')
+    cherrypy.quickstart(MVC_Cherry())
     """ Starts internal httpd and listens at: http://127.0.0.1:8080 or whatever
         Heroku returns...
     """
