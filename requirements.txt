@@ -1,7 +1,6 @@
 cheroot==5.10.0
 CherryPy==12.0.1
 jaraco.classes==1.4.3
-pkg-resources==0.0.0
 portend==2.2
 pytz==2017.3
 six==1.11.0
