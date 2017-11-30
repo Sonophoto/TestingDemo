@@ -2,6 +2,7 @@
 """ Test app for Fibonacci and GCD functions
 """
 
+
 import cherrypy
 import fibonacci as fib
 import gcdVersions as gcd
@@ -16,10 +17,16 @@ class MVC_Cherry(object):
 
     @cherrypy.expose
     def index(self):
-        html_page = "<h1>Choose a Function API</h1>"
-        html_page = html_page + '<p><a href="FibonacciAPI">Fibonacci API</a></p>'
-        html_page = html_page + '<p><a href="gcdAPI">Greatest Common Divisor API</a></p>'
-        return html_page
+        return \
+"""
+<html><head></head>
+  <body>
+    <h1>Choose a Function API</h1>
+    <p><a href="FibonacciAPI">Fibonacci API</a></p>
+    <p><a href="gcdAPI">Greatest Common Divisor API</a></p>
+  </body>
+</html>
+""" 
 
     # Path is http://[ADDRESS]:[PORT]/FibonacciAPI?fidx=[INTEGER]
     @cherrypy.expose
@@ -53,5 +60,4 @@ if __name__ == "__main__":
     """ Starts internal httpd and listens at: http://127.0.0.1:8080 or whatever
         Heroku returns...
     """
-
 
