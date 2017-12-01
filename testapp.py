@@ -32,12 +32,12 @@ class Fib_GCD_API(object):
         if fibx is None:
             return "Error: Specify a value for fibx"
 
+        if (fibx < 0):
+            return "Error: Input value must be >= 0"
+
         fibx = int(fibx) # cast URL string to int...
         if (fibx > 1000):
             return "Error: Use a value <= 1000"
-
-        if (fibx < 0):
-            return "Error: Input value must be >= 0"
 
         fib_string = str(fib.fibonacciSequencer(fibx))
         return fib_string
