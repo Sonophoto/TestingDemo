@@ -7,5 +7,7 @@ Uses Cherrypy to implement the web application
 
 Uses Travic CI for continuous integration
 
-Uses Heroku for Deployment.
+[Click this link to view the app on Heroku](https://hidden-wildwood-69808.herokuapp.com/) 
+
+(*Please allow the app several seconds to spin up)
 
