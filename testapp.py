@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
-""" Test app for Fibonacci and GCD functions
+""" Test API for Fibonacci and GCD functions
 """
-
-
 import cherrypy
 import fibonacci as fib
 import gcdVersions as gcd
@@ -10,8 +8,7 @@ import gcdVersions as gcd
 # import test_gcdVersions
 
 
-
-class MVC_Cherry(object):
+class Fib_GCD_API(object):
     """ Main Application Class for Fibonacci and GCD testing system
     """
 
@@ -56,8 +53,26 @@ class MVC_Cherry(object):
 
 
 if __name__ == "__main__":
-    cherrypy.quickstart(MVC_Cherry())
-    """ Starts internal httpd and listens at: http://127.0.0.1:8080 or whatever
-        Heroku returns...
+
+    import os as os
+
+    conf = {
+        'global': {
+            'server.socket_host': '0.0.0.0',
+            'server.socket_port': int(os.environ.get('PORT', 8080))
+        },
+        '/': {
+            'tools.sessions.on': True,
+            'tools.staticdir.root': os.path.abspath(os.getcwd())
+        },
+        '/static': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': './public'
+        }
+
+    }
+
+    """ Starts internal httpd and listens at whatever Heroku returns...
     """
+    cherrypy.quickstart(Fib_GCD_API(), '/', conf)
 
