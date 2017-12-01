@@ -25,29 +25,35 @@ class Fib_GCD_API(object):
 </html>
 """ 
 
-    # Path is http://[ADDRESS]:[PORT]/FibonacciAPI?fidx=[INTEGER]
     @cherrypy.expose
     def FibonacciAPI(self, fibx=0):
-        """ This is the view function for the fibonacci API 
+        """ Path should be https://[ADDRESS]:[PORT]/FibonacciAPI?fidx=[INTEGER]
         """
         if fibx is None:
             return "Error: Specify a value for fibx"
+
         fibx = int(fibx) # cast URL string to int...
-        if (fibx > 1000): return "Error: Use a value <= 1000"
-        if (fibx < 0): return "Error: Input value must be >= 0"
+        if (fibx > 1000):
+            return "Error: Use a value <= 1000"
+
+        if (fibx < 0):
+            return "Error: Input value must be >= 0"
+
         fib_string = str(fib.fibonacciSequencer(fibx))
         return fib_string
 
-    # Path is http://[ADDRESS]:[PORT]/gcdAPI?a_value=[INTEGER]&b_value=[INTEGER]
     @cherrypy.expose
     def gcdAPI(self, a_value=1, b_value=1):
-        """ This is the view function for gcd API
+        """ Path should be https://[ADDRESS]:[PORT]/gcdAPI?a_value=[INTEGER]&b_value=[INTEGER]
         """
         if a_value is None or b_value is None:
             return "Error: Specify values for a_value and b_value"
+
         a_value = int(a_value)
         b_value = int(b_value)
-        if a_value < 0 and b_value < 0 : return "Error: values must be greater than zero"
+        if a_value < 0 and b_value < 0 :
+            return "Error: values must be greater than zero"
+
         gcd_string = str(gcd.gcd_lame(a_value, b_value))
         return gcd_string 
 
