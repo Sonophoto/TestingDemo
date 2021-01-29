@@ -27,15 +27,15 @@ class Fib_GCD_API(object):
 
     @cherrypy.expose
     def FibonacciAPI(self, fibx=0):
-        """ Path should be https://[ADDRESS]:[PORT]/FibonacciAPI?fidx=[INTEGER]
+        """ Path should be https://[ADDRESS]:[PORT]/FibonacciAPI?fibx=[INTEGER]
         """
         if fibx is None:
             return "Error: Specify a value for fibx"
 
+        fibx = int(fibx) # cast URL string to int...
         if (fibx < 0):
             return "Error: Input value must be >= 0"
-
-        fibx = int(fibx) # cast URL string to int...
+        
         if (fibx > 1000):
             return "Error: Use a value <= 1000"
 
