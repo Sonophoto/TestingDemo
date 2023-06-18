@@ -17,6 +17,7 @@ class Fib_GCD_API(object):
         return \
 """
 <html><head></head>
+<!-- Add HTML Comment -->
   <body>
     <h1>Choose a Function API</h1>
     <p><a href="FibonacciAPI">Fibonacci API</a></p>
